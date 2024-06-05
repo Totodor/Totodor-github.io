@@ -74,7 +74,7 @@ input {
     font-family: bits;
     letter-spacing: 1px;
     max-width: 200px;
-    margin:10px 0px 10px;
+    margin: 10px 0px 10px;
 }
 
 button:hover {
@@ -86,7 +86,7 @@ dialog {
     width: 70%;
 }
 
-img{
+img {
     margin: 10px auto 20px;
     display: block;
 }
@@ -128,9 +128,26 @@ img{
     #rat {
         font-size: 15px;
     }
-    img{
-        
-    height: 300px;
+
+    img {
+
+        height: 300px;
+    }
+
+    #st{
+        height: 90%;
+    }
+    
+    #play {
+        position: absolute;
+        float: left;
+        width: 20%;
+        bottom: 20px;
+    }
+    
+    #cart {
+        float: right;
+        width: 70%;
     }
 }
 
@@ -173,8 +190,14 @@ img{
     #rat {
         font-size: 10px;
     }
+
     img {
-        width: 200px;
+        width: 75%;
+    }
+
+    #st{
+        height: 50%;
+        text-align: center
     }
 }
 
@@ -216,8 +239,7 @@ img{
     width: 400px;
 }
 
-#pause
-{
+#pause {
     grid-area: pause;
     z-index: 1;
 }
@@ -239,11 +261,11 @@ img{
         "name score"
 }
 
-#start{
+#start {
     position: relative;
 }
 
-#con{
+#con {
     position: absolute;
     bottom: 20px;
     left: 20px;
