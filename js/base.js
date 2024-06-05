@@ -5,6 +5,7 @@
     function init() {
         window.addEventListener("resize", res);
         document.addEventListener("keydown", move);
+        document.addEventListener("click",movec);
         document.getElementById("theme").addEventListener("click", theme);
         document.getElementById("pink").addEventListener("click", pink);
         document.getElementById("set").addEventListener("click", settings);
@@ -108,6 +109,7 @@
             const response = await fetchResult;
             if (response.ok) {
                 const jsonData = await response.json();
+                el.lastChild.remove();
                 let div = document.createElement("div");
                 let im = document.createElement("img");
                 im.src = jsonData[0].url;
@@ -370,6 +372,14 @@
             if (key == 'ArrowUp' || key == "Space") {
                 vy = hj;
             }
+            jump = true;
+            document.getElementsByClassName("player")[0].className = "player jumpUp";
+        }
+    }
+
+    function movec() {
+        if (!jump) {
+            vy = hj;
             jump = true;
             document.getElementsByClassName("player")[0].className = "player jumpUp";
         }
