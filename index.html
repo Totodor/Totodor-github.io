@@ -6,18 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
     <link href="css/base.css" type="text/css" rel="stylesheet" media="screen">
     <title>Horse Game</title>
-    <link href="/dt//img/icon.png" type="image/ico" rel="shortcut icon">
+    <link href="/dt/img/icon.png" type="image/ico" rel="shortcut icon">
     <script src="js/class.js" type="text/javascript"></script>
     <script src="js/base.js" type="text/javascript"></script>
 </head>
 
 <body>
     <div id="space">
+        <dialog id="st">
+            <div id = "cart">
+                <img src="dt/img/st/st1.jpg">
+                <img src="dt/img/st/st2.jpg">
+            </div>
+            <button id="play">play</button>
+        </dialog>
         <dialog id="start">
             <span>Name?</span>
             <input type="text" id="name" name="name">
             <button id="starbut" disabled>Start</button>
-            <button id = "con" disabled>COUNTINUE</button>
+            <button id="con" disabled>CONTINUE</button>
         </dialog>
         <dialog id="di">
             <button type="button" id="clset">Cl</button>
@@ -26,20 +33,20 @@
             <div>
                 <input type="radio" id="easy" name="diff" value="0.5">
                 <label for="easy">easy</label>
-                
+
                 <input type="radio" id="mid" name="diff" value="1" checked>
                 <label for="mid">mid</label>
-                
+
                 <input type="radio" id="hard" name="diff" value="4">
                 <label for="hard">hard</label>
             </div>
         </dialog>
         <dialog id="rating">
-            <button id = "clrez">Cl</button>
+            <button id="clrez">Cl</button>
             <div id="rat"></div>
         </dialog>
         <span id="score">000000</span>
-        <button id = "pause">P</button>
+        <button id="pause">P</button>
         <button id="set">Set</button>
         <button id="rez">Led</button>
         <button id="theme">T</button>
