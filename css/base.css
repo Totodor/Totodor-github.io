@@ -74,6 +74,7 @@ input {
     font-family: bits;
     letter-spacing: 1px;
     max-width: 200px;
+    margin:10px 0px 10px;
 }
 
 button:hover {
@@ -81,8 +82,13 @@ button:hover {
 }
 
 dialog {
-    height: 60%;
+    height: 70%;
     width: 70%;
+}
+
+img{
+    margin: 10px auto 20px;
+    display: block;
 }
 
 @media (960px <=width) {
@@ -121,6 +127,10 @@ dialog {
 
     #rat {
         font-size: 15px;
+    }
+    img{
+        
+    height: 300px;
     }
 }
 
@@ -162,6 +172,9 @@ dialog {
 
     #rat {
         font-size: 10px;
+    }
+    img {
+        width: 200px;
     }
 }
 
