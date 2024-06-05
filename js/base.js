@@ -32,7 +32,6 @@
     let ua = 1, up = 1;
 
     function change() {
-        alert(this.value);
         ua = this.value;
         a *= ua;
         up = this.value;
@@ -80,10 +79,10 @@
 
     async function first() {
         try {
-            const response = await fetch('https://totodor.github.io/Totodor-github.io/dt', {
+            const response = await fetch('https://totodor.github.io/Totodor-github.io/dt/base.json', {
                 method: 'GET',
                 headers: {
-                    Accept: 'base/json',
+                    Accept: 'base.json',
                 },
             });
 
