@@ -5,7 +5,7 @@
     function init() {
         window.addEventListener("resize", res);
         document.addEventListener("keydown", move);
-        document.addEventListener("click",movec);
+        document.addEventListener("click", movec);
         document.getElementById("theme").addEventListener("click", theme);
         document.getElementById("pink").addEventListener("click", pink);
         document.getElementById("set").addEventListener("click", settings);
@@ -16,11 +16,12 @@
         document.getElementById("name").addEventListener("keyup", prov);
         document.getElementById("pause").addEventListener("click", pause);
         document.getElementById("con").addEventListener("click", con);
+        document.getElementById("play").addEventListener("click", stclose);
         for (let i = 0; i < document.getElementsByName("diff").length; i++) {
             document.getElementsByName("diff")[i].addEventListener("click", change);
         }
         themeLoc();
-        begin();
+        st();
 
         let pl = document.createElement('div');
         pl.className = "player";
@@ -37,6 +38,17 @@
         ua = this.value;
         a *= ua;
         up = this.value;
+    }
+
+    function st() {
+        let st = document.getElementById("st");
+        st.showModal();
+    }
+
+    function stclose() {
+        let st = document.getElementById("st");
+        st.close();
+        begin();
     }
 
     let y;
@@ -127,10 +139,11 @@
     let sp, a, hj;
     function begin() {
         let st = document.getElementById("start");
-        st.showModal();
         facts(st);
+        st.showModal();
         sp = 0;
         a = 0;
+        vy = 0;
     }
 
     let t, gr, ob;
