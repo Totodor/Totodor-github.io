@@ -12,7 +12,7 @@
         document.getElementById("clrez").addEventListener("click", clrating);
         document.getElementById("starbut").addEventListener("click", start);
         document.getElementById("name").addEventListener("keyup", prov);
-        document.getElementById("pause").addEventListener("click",pause);
+        document.getElementById("pause").addEventListener("click", pause);
         document.getElementById("con").addEventListener("click", con);
         for (let i = 0; i < document.getElementsByName("diff").length; i++) {
             document.getElementsByName("diff")[i].addEventListener("click", change);
@@ -29,23 +29,22 @@
         first();
     }
 
-    let ua=1, up=1;
+    let ua = 1, up = 1;
 
-    function change(){
+    function change() {
         alert(this.value);
-        ua=this.value;
-        a*=ua;
-        up=this.value;
+        ua = this.value;
+        a *= ua;
+        up = this.value;
     }
 
     let y;
-    let ssp,sa,sv;
+    let ssp, sa, sv;
 
-    function pause()
-    {
-        ssp=sp;
-        sa=a;
-        sv=vy;
+    function pause() {
+        ssp = sp;
+        sa = a;
+        sv = vy;
         sp = 0;
         a = 0;
         vy = 0;
@@ -54,14 +53,13 @@
         clearInterval(ob);
         begin();
         this.blur();
-        document.getElementById("con").disabled=false;
+        document.getElementById("con").disabled = false;
     }
 
-    function con()
-    {
-        sp=ssp;
-        a=sa;
-        vy=sv;
+    function con() {
+        sp = ssp;
+        a = sa;
+        vy = sv;
         t = setInterval(score, 400);
         gr = setInterval(grav, 30);
         ob = setInterval(obstacle, 10);
@@ -81,10 +79,26 @@
     }
 
     async function first() {
-        const obj = await fetch("../dt/base.json").then((response) => response.json());
-        let A = new coolRating(obj.player[0].name, obj.player[0].score);
-        localStorage.setItem("players", JSON.stringify([A, new coolRating(0, 0)]));
-        const myArrayOfObjects = JSON.parse(localStorage.getItem("players"));
+        try {
+            const response = await fetch('https://totodor.github.io/Totodor-github.io/dt', {
+                method: 'GET',
+                headers: {
+                    Accept: 'base/json',
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error(`Error! status: ${response.status}`);
+            }
+
+            const obj = await response.json();
+            JSON.parse(localStorage.getItem("players"));
+            let A = new coolRating(obj.player[0].name, obj.player[0].score);
+            localStorage.setItem("players", JSON.stringify([A, new coolRating(0, 0)]));
+            return result;
+        } catch (err) {
+            console.log(err);
+        }
     }
 
     let sp, a, hj;
@@ -101,11 +115,11 @@
         let pl = document.getElementsByClassName("player")[0];
         if (pl.offsetHeight == 70) {
             sp = 2;
-            a = 0.03*ua;
+            a = 0.03 * ua;
             hj = -8;
         } else {
             sp = 4;
-            a = 0.05*ua;
+            a = 0.05 * ua;
             hj = -12;
         }
         let obj = document.getElementsByClassName("obs");
@@ -127,7 +141,7 @@
             a = 0.05;
             hj = -12;
         }
-        
+
         document.getElementById("score").innerText = "000000";
         pl.className = "player";
         pl.style.top = window.innerHeight - 150 - pl.offsetHeight - 30 + "px";
@@ -148,10 +162,9 @@
     function score() {
         let sc = document.getElementById("score");
         let s = parseInt(sc.innerText) + 1;
-        if (s>=100)
-            {
-                document.getElementById("pink").disabled=false;
-            }
+        if (s >= 100) {
+            document.getElementById("pink").disabled = false;
+        }
         sc.innerText = String(s).padStart(6, '0');
         sp += a;
     }
@@ -173,7 +186,7 @@
 
     async function show() {
         let rat = document.getElementById("rat");
-        rat.innerHTML="";
+        rat.innerHTML = "";
         let rt = document.createElement('span');
         rt.innerText = "Rating";
         rt.className = "head";
@@ -282,7 +295,7 @@
         }
         document.body.append(obj);
         obj.style.top = window.innerHeight - obj.offsetHeight - 150 + "px";
-        obj.style.left = document.body.clientWidth + Math.floor(Math.random() * (500/up)) + "px";
+        obj.style.left = document.body.clientWidth + Math.floor(Math.random() * (500 / up)) + "px";
     }
 
     function settings() {
