@@ -1,5 +1,6 @@
 (function () {
     window.addEventListener('load', init);
+    let i = 0;
 
     function init() {
         window.addEventListener("resize", res);
@@ -100,10 +101,32 @@
         }
     }
 
+    async function facts(el) {
+        const URL = `https://api.thecatapi.com/v1/images/search`;
+        try {
+            const fetchResult = fetch(URL);
+            const response = await fetchResult;
+            if (response.ok) {
+                const jsonData = await response.json();
+                let div = document.createElement("div");
+                let im = document.createElement("img");
+                im.src = jsonData[0].url;
+                div.append(im);
+                el.append(div);
+                console.log(jsonData);
+            } else {
+                console.log(`Response.status: ${response.status}`);
+            }
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
     let sp, a, hj;
     function begin() {
         let st = document.getElementById("start");
         st.showModal();
+        facts(st);
         sp = 0;
         a = 0;
     }
